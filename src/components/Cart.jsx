@@ -12,20 +12,11 @@ let nonVeg =
   "https://www.kindpng.com/picc/m/151-1515155_veg-icon-png-non-veg-symbol-png-transparent.png";
 
 function Cart() {
-  // const { cartData, setCartData } = useContext(CartContext);
-  // console.log(cartData);
-
   const navigate = useNavigate();
   const cartData = useSelector((state) => state.cartSlice.cartItems);
   const resInfo = useSelector((state) => state.cartSlice.resInfo);
-  // console.log(resInfo);
-  const dispatch = useDispatch();
-  // console.log(cartData);
-  // let totalPrice = 0;
 
-  // for(let i = 0 ; i < cartData.length ; i++ ){
-  //     totalPrice = totalPrice + cartData[i].price / 100 || cartData[i].defaultPrice / 100
-  // }
+  const dispatch = useDispatch();
 
   let totalPrice = cartData.reduce(
     (acc, curVal) => acc + curVal.price / 100 || curVal.defaultPrice / 100,
@@ -36,7 +27,7 @@ function Cart() {
     if (cartData.length > 1) {
       let newArr = [...cartData];
       newArr.splice(i, 1);
-      // setCartData(newArr);
+
       dispatch(deleteItem(newArr));
       toast.success("Food removed");
     } else {
@@ -49,9 +40,6 @@ function Cart() {
 
   function handleClearCart() {
     dispatch(clearCart());
-    // setCartData([]);
-    // localStorage.setItem("cartData", JSON.stringify([]));
-    // localStorage.clear();
   }
   function handlePlaceOrder() {
     if (!userData) {

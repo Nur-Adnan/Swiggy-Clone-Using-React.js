@@ -32,10 +32,7 @@ function RestaurantMenu() {
 
   function handlePrev() {}
 
-  // console.log(menuData);
-
   async function fetchMenu() {
-    // console.log(mainId.split("rest")[1]);
     let data = await fetch(
       `${
         import.meta.env.VITE_BASE_URL
@@ -44,15 +41,11 @@ function RestaurantMenu() {
       }&catalog_qa=undefined&submitAction=ENTER`
     );
 
-    // https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.9690247&lng=72.8205292&restaurantId=233329&catalog_qa=undefined&submitAction=ENTER
     let res = await data.json();
-    // console.log(res);
 
     const resInfo = res?.data?.cards.find((data) =>
       data?.card?.card?.["@type"].includes("food.v2.Restaurant")
     )?.card?.card?.info;
-
-    // console.log(resInfo);
 
     const discountInfo = res?.data?.cards.find((data) =>
       data?.card?.card?.["@type"].includes("v2.GridWidget")

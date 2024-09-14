@@ -183,7 +183,7 @@ function Head() {
                     {address}
                   </span>
                 </p>
-                <i className="fi text-2xl mt-2 text-orange-500 fi-rs-angle-small-down"></i>
+                <i className="fi text-2xl mt-2 text-orange-500 fi-Dollar-angle-small-down"></i>
               </div>
             </div>
 

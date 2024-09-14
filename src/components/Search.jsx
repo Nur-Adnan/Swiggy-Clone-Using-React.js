@@ -26,7 +26,6 @@ function Search() {
         itemId,
         resLocation,
     } = useSelector((state) => state.toogleSlice.similarResDish);
-    // console.log({ isSimilarResDishes, city, resId, itemId, resLocation });
     const dispatch = useDispatch();
     // console.log(isSimilarResDishes);
     const filterOptions = ["Restaurant", "Dishes"];
